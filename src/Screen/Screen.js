@@ -1,14 +1,35 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { exampleAction } from '../Screen/actions/actions';
 
 import { styles } from './styles';
 
-export default class OpenGL extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>Screen</Text>
-            </View>
-        );
+const OpenGL = (props) => {
+    const { exampleAction, displayedState } = props;
+
+    const sendAction = () => {
+        exampleAction();
     }
+
+    return (
+        <View style={styles.container}>
+            <Text>{displayedState}</Text>
+            <TouchableOpacity onPress={sendAction}>
+                <Text>Send Action</Text>
+            </TouchableOpacity>
+        </View>
+    );
+
 }
+
+const mapStateToProps = (state) => ({
+    displayedState: state.example
+})
+
+const mapDispatchToProps = {
+    exampleAction
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpenGL)
