@@ -16,7 +16,7 @@ const OpenGL = (props) => {
         <View style={styles.container}>
             <Text>{displayedState}</Text>
             <TouchableOpacity onPress={sendAction}>
-                <Text>Send Action</Text>
+                <Text style={styles.button}>Send Action</Text>
             </TouchableOpacity>
         </View>
     );

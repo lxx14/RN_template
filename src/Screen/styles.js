@@ -6,6 +6,12 @@ export const styles = StyleSheet.create(
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
+        },
+        button: {
+            backgroundColor: 'lightblue',
+            padding: 20,
+            marginTop: 10,
+            borderRadius: 10,
         }
     }
 )
